@@ -1,4 +1,4 @@
-# WECHAT.JS [![](https://img.shields.io/github/release/Ericlong/wechat.js.svg?style=flat-square)](https://github.com/Ericlong233/wechat.js/releases)[![license](https://img.shields.io/github/license/Ericlong233/wechat.js.svg?style=flat-square)](https://github.com/Ericlong233/wechat.js/blob/master/LICENSE)
+# WECHAT.JS [![](https://img.shields.io/github/release/Ericlong/wechat.js.svg?style=flat-square)](https://github.com/Ericlong233/wechat.js/releases) [![license](https://img.shields.io/github/license/Ericlong233/wechat.js.svg?style=flat-square)](https://github.com/Ericlong233/wechat.js/blob/master/LICENSE)
 
 *This is temporarily an uncompleted project. You can star it or watch it to show your interest of this project.*
 
@@ -26,28 +26,28 @@ let WeChat = require("wechatjs")
 let bot = new WeChat()
 
 bot.on("ready", () => {
-  
-  	// Search for a male friend nicknamed "Ericlong"
-	let friend = bot.search({
-    	name: "Ericlong"
-  		sex: 0
-	})
 
-	friend.send("Hello, world!")          // Send text
-	friend.sendImg("path/to/your/img")    // Send image
+  // Search for a male friend nicknamed "Ericlong"
+  let friend = bot.search({
+    name: "Ericlong"
+      sex: 0
+  })
 
-	// Respond messages
-	// Print all incoming messages
-	bot.listen("all", (contact, msg) => {
-    	console.log(`${contact.nickname} sent a message: ${msg}`)
-	})
-	// Reply friend's messages
-	bot.listen(friend, (msg) => {
-    	if (msg === "Hello") {
-            friend.send(`Hello, ${friend.nickname}!`)
-        }
-	})
-  
+  friend.send("Hello, world!")          // Send text
+  friend.sendImg("path/to/your/img")    // Send image
+
+  // Respond messages
+  // Print all incoming messages
+  bot.listen("all", (contact, msg) => {
+    console.log(`${contact.nickname} sent a message: ${msg}`)
+  })
+  // Reply friend's messages
+  bot.listen(friend, (msg) => {
+    if (msg === "Hello") {
+      friend.send(`Hello, ${friend.nickname}!`)
+    }
+  })
+
 })
 ```
 
